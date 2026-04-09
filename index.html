@@ -3,203 +3,390 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>كمال القادري - Portfolio</title>
+  <title>ماهر الفكشلي - Portfolio</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: 'Cairo', sans-serif;
-      text-align: right;
-      background: #050505;
-      color: #FFFFFF;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+body {
+  font-family: 'Cairo', sans-serif;
+  text-align: right;
+  background: #050505;
+  color: #FFFFFF;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
 
-    body::before {
-      content: '';
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(0, 242, 254, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
-      animation: bgPulse 20s ease infinite;
-    }
+/* Animated Background */
+body::before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 242, 254, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+  animation: bgPulse 20s ease infinite;
+}
 
-    @keyframes bgPulse {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
+@keyframes bgPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 1;
-    }
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
 
-    section {
-      padding: 80px 0;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
 
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #00F2FE, #4FACFE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease;
+}
 
-    .section-title {
-      font-size: 3rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, #00F2FE, #4FACFE);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 50px;
-      text-align: center;
-    }
+.hero .subtitle {
+  font-size: 2rem;
+  color: #00F2FE;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease 0.2s backwards;
+}
 
-    .card {
-      background: rgba(25, 25, 25, 0.8);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 30px;
-      margin: 20px 0;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+.hero .btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #00F2FE, #4FACFE);
+  color: #000;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 242, 254, 0.4);
+  animation: fadeInUp 1s ease 0.4s backwards;
+}
 
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(0, 242, 254, 0.5);
-      box-shadow: 0 20px 60px rgba(0, 242, 254, 0.3);
-    }
+.hero .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 242, 254, 0.6);
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    .btn {
-      display: inline-block;
-      padding: 16px 40px;
-      background: linear-gradient(135deg, #00F2FE, #4FACFE);
-      color: #000;
-      font-weight: 700;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(0, 242, 254, 0.4);
-    }
+/* Section Styling */
+section {
+  padding: 80px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 40px rgba(0, 242, 254, 0.6);
-    }
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    @media (max-width: 768px) {
-      .section-title { font-size: 2rem; }
-      section { padding: 50px 0; }
-      .grid { grid-template-columns: 1fr; }
-    }
-  </style>
+/* Section Title */
+.section-title {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #00F2FE, #4FACFE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+/* Card Styling */
+.card {
+  background: rgba(25, 25, 25, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 242, 254, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 242, 254, 0.3);
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+/* About Section */
+.about-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #b0b0b0;
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Skills Section */
+.skill-card {
+  background: rgba(25, 25, 25, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.skill-card:hover::before {
+  left: 100%;
+}
+
+.skill-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00F2FE;
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+}
+
+/* Experience Section */
+.experience-card {
+  background: rgba(25, 25, 25, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.experience-card:hover::before {
+  left: 100%;
+}
+
+.experience-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4FACFE;
+  margin-bottom: 10px;
+}
+
+.experience-card p {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+}
+
+/* Education Section */
+.education-card {
+  background: rgba(25, 25, 25, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.education-card:hover::before {
+  left: 100%;
+}
+
+.education-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00F2FE;
+  margin-bottom: 10px;
+}
+
+.education-card p {
+  color: #b0b0b0;
+  font-size: 1.1rem;
+}
+
+/* Contact Section */
+.contact-info {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #00F2FE;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .hero .subtitle { font-size: 1.5rem; }
+  .section-title { font-size: 2rem; }
+  section { padding: 50px 0; }
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero">
-      <div class="hero-content">
-        <h1 class="hero-name">كمال القادري</h1>
-        <h2 class="hero-title">مهندس معلوماتية</h2>
-        <a href="#contact" class="btn">تواصل معي</a>
-      </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section id="about">
-      <h2 class="section-title">نبذة عني</h2>
-      <div class="card">
-        <p class="about-text">مطور ويب وباك اند لارفيل</p>
-      </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section id="skills">
-      <h2 class="section-title">المهارات</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>html</h3>
-        </div>
-        <div class="card">
-          <h3>css</h3>
-        </div>
-        <div class="card">
-          <h3>laravel</h3>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience">
-      <h2 class="section-title">الخبرات العملية</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>سنتين</h3>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION SECTION -->
-    <section id="education">
-      <h2 class="section-title">التعليم</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>هندسة معلوماتية جامعة الجزيرة الخاصة</h3>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-      <h2 class="section-title">تواصل معي</h2>
-      <div class="card">
-        <p class="contact-info">٠٩٩٨٦٧٥٤٤</p>
-      </div>
-    </section>
+  <div class="hero">
+    <div class="container">
+      <h1>ماهر الفكشلي</h1>
+      <h2 class="subtitle">مهندس اتصالات</h2>
+      <a href="tel:٠٩٩٦٧٤٣٦٧" class="btn">Contact Me</a>
+    </div>
   </div>
 
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">نبذة عني</h2>
+      <div class="card">
+        <p class="about-text">مهندس اتصالات متخصص بالدارت الالكترونية وتعديل وتطوير برمجة راسبيري</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">المهارات</h2>
+      <div class="grid">
+        <div class="skill-card">
+          <h3>c++ بايثون</h3>
+          <p>برمجة متقدمة وتطوير</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">الخبرات العملية</h2>
+      <div class="grid">
+        <div class="experience-card">
+          <h3>سنتين</h3>
+          <p>خبرة عملية في مجال الاتصالات والإلكترونيات</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">التعليم</h2>
+      <div class="grid">
+        <div class="education-card">
+          <h3>دبلوم هندسة برمجيات</h3>
+          <p>معهد مكنيك عام ٢٠٢٥</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">تواصل معي</h2>
+      <div class="card">
+        <p class="contact-info">٠٩٩٦٧٤٣٦٧</p>
+      </div>
+    </div>
+  </section>
+
   <script>
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
+// Intersection Observer for scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
 
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-      });
-    });
-  </script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+});
+</script>
 </body>
 </html>
