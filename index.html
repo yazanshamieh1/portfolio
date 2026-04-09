@@ -5,289 +5,307 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>كمال القادري - مهندس معلوماتية</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap');
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        html {
-            scroll-behavior: smooth;
-        }
         body {
             font-family: 'Cairo', sans-serif;
             text-align: right;
-            background-color: #0B1120;
-            color: #F8FAFC;
-            line-height: 1.6;
+            background: #050505;
+            color: #FFFFFF;
             overflow-x: hidden;
+            position: relative;
         }
-        /* Header */
-        header {
-            position: sticky;
+        body::before {
+            content: '';
+            position: fixed;
             top: 0;
-            background: rgba(30, 41, 59, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 242, 254, 0.1) 0%, transparent 50%), 
+                        radial-gradient(circle at 80% 80%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+            animation: moveOrbs 20s ease-in-out infinite;
+            z-index: -1;
         }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        @keyframes moveOrbs {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.2); }
+            66% { transform: translate(-30px, 30px) scale(0.8); }
         }
-        nav h1 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #38BDF8;
-        }
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        nav a {
-            color: #94A3B8;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        nav a:hover {
-            color: #38BDF8;
-        }
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-        }
-        .hero-content {
-            max-width: 800px;
-            animation: fadeInUp 1s ease;
-        }
-        .hero h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #38BDF8, #60A5FA);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero h3 {
-            font-size: 1.5rem;
-            color: #94A3B8;
-            margin-bottom: 2rem;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            color: #E2E8F0;
-            margin-bottom: 3rem;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #38BDF8;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
-        }
-        /* Skills Section */
-        .skills {
-            padding: 5rem 2rem;
-            background: #0B1120;
-        }
-        .skills h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: rgba(25, 25, 25, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, #00F2FE, #4FACFE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
+            to { text-shadow: 0 0 20px rgba(79, 172, 254, 0.8), 0 0 30px rgba(79, 172, 254, 0.6); }
+        }
+        .hero p {
+            font-size: 1.5rem;
+            color: #A1A1AA;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #00F2FE, #4FACFE);
+            color: #050505;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 242, 254, 0.5);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .bento-card {
+            background: rgba(25, 25, 25, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #00F2FE, #4FACFE);
+        }
+        .bento-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 242, 254, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.2);
+        }
+        .bento-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #00F2FE;
+        }
+        .bento-card p {
+            color: #A1A1AA;
+            line-height: 1.6;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
         }
         .skill-tag {
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid #38BDF8;
-            color: #38BDF8;
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-        .skill-tag:hover {
-            transform: scale(1.05);
-            background: rgba(56, 189, 248, 0.2);
-        }
-        /* Experience & Education */
-        .timeline {
-            padding: 5rem 2rem;
-            background: #0B1120;
-        }
-        .timeline h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-        .timeline-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            gap: 2rem;
-        }
-        .timeline-item {
-            background: #1E293B;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #38BDF8;
-        }
-        .timeline-item h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #38BDF8;
-            margin-bottom: 0.5rem;
-        }
-        .timeline-item p {
-            color: #94A3B8;
-            margin-bottom: 0.5rem;
-        }
-        .timeline-item span {
-            color: #64748B;
+            background: linear-gradient(45deg, #00F2FE, #4FACFE);
+            color: #050505;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 0.9rem;
+            font-weight: 700;
         }
-        /* Contact */
-        .contact {
-            padding: 5rem 2rem;
-            background: #0B1120;
+        .experience-item, .education-item {
+            background: rgba(25, 25, 25, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .experience-item:hover, .education-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+        .experience-item h4, .education-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #00F2FE;
+            margin-bottom: 10px;
+        }
+        .experience-item p, .education-item p {
+            color: #A1A1AA;
+            margin-bottom: 5px;
+        }
+        .contact-section {
+            background: rgba(25, 25, 25, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
             text-align: center;
         }
-        .contact h2 {
+        .contact-section h2 {
             font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00F2FE, #4FACFE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 30px;
+            margin-top: 30px;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
         }
         .contact-item {
-            background: #1E293B;
-            padding: 1.5rem 2rem;
-            border-radius: 10px;
-            min-width: 200px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            color: #A1A1AA;
         }
-        .contact-item p {
-            color: #94A3B8;
+        .contact-item i {
+            color: #00F2FE;
+            font-size: 1.5rem;
         }
-        .contact-item span {
-            color: #F8FAFC;
-            font-weight: 600;
-        }
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2rem;
+            .hero h1 {
+                font-size: clamp(2rem, 6vw, 4rem);
             }
-            .hero h3 {
+            .hero p {
                 font-size: 1.2rem;
             }
-            nav ul {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info {
                 flex-direction: column;
-                gap: 1rem;
+                align-items: center;
             }
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            }
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #00F2FE, #4FACFE);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #4FACFE, #00F2FE);
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>كمال القادري</h1>
-            <ul>
-                <li><a href="#hero">الرئيسية</a></li>
-                <li><a href="#skills">المهارات</a></li>
-                <li><a href="#experience">الخبرة</a></li>
-                <li><a href="#contact">التواصل</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h2>كمال القادري</h2>
-            <h3>مهندس معلوماتية</h3>
-            <p>مطور ويب محترف بخبرة تزيد عن سنتين في تطوير تطبيقات الويب باستخدام أحدث التقنيات.</p>
-            <a href="#contact" class="btn">تواصل معي</a>
-        </div>
-    </section>
-
-    <section id="skills" class="skills">
-        <h2>المهارات</h2>
-        <div class="skills-grid">
-            <div class="skill-tag">HTML</div>
-            <div class="skill-tag">CSS</div>
-            <div class="skill-tag">Laravel</div>
-        </div>
-    </section>
-
-    <section id="experience" class="timeline">
-        <h2>الخبرة والتعليم</h2>
-        <div class="timeline-grid">
-            <div class="timeline-item">
-                <h3>خبرة عملية</h3>
-                <p>سنتين</p>
+    <div class="container">
+        <header>
+            <div class="hero">
+                <h1>كمال القادري</h1>
+                <p>مهندس معلوماتية</p>
+                <p>مطور ويب وباك اند لارفيل</p>
+                <a href="tel:٠٩٩٧٦٣٦٧٧٣" class="cta-button">تواصل معي</a>
             </div>
-            <div class="timeline-item">
+        </header>
+
+        <section class="bento-grid">
+            <div class="bento-card fade-in-up">
+                <h3>المهارات</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">Laravel</span>
+                </div>
+            </div>
+            <div class="bento-card fade-in-up">
+                <h3>الخبرة</h3>
+                <div class="experience-item">
+                    <h4>مطور ويب</h4>
+                    <p>سنتين</p>
+                </div>
+            </div>
+            <div class="bento-card fade-in-up">
                 <h3>التعليم</h3>
-                <p>هندسة معلوماتية</p>
-                <span>جامعة جزيرة الخاصة</span>
+                <div class="education-item">
+                    <h4>هندسة معلوماتية</h4>
+                    <p>جامعة الجزيرة الخاصة</p>
+                    <p>2025</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact">
-        <h2>تواصل معي</h2>
-        <div class="contact-info">
-            <div class="contact-item">
-                <p><span>الهاتف:</span></p>
-                <p>٠٩٩٧٣٥٦٧٨٣</p>
+        <section class="contact-section fade-in-up">
+            <h2>تواصل معي</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>٠٩٩٧٦٣٦٧٧٣</span>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
