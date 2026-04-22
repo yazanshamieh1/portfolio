@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yazan Shamieh</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0D0D0B;--cream:#F7F3ED;--cream2:#EDE8DF;--gold:#B8953A;--gold2:#D4AE55;--muted:#8A8070;--df:'Playfair Display',serif;--bf:'DM Sans',sans-serif;--maxw:1160px}
+html{scroll-behavior:smooth;background:var(--cream)}
+body{font-family:var(--bf);color:var(--ink);overflow-x:hidden;font-weight:300;font-size:16px;line-height:1.7}
+::selection{background:var(--gold);color:#fff}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:none}
+nav{position:fixed;top:0;inset-inline:0;z-index:200;height:68px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 60px;
+  background:rgba(247,243,237,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(184,149,58,.18)}
+.nav-name{font-family:var(--df);font-size:18px;font-weight:700;letter-spacing:.03em}
+.nav-links{display:flex;gap:0}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  text-decoration:none;padding:8px 18px;border-inline-end:1px solid rgba(184,149,58,.15);
+  transition:color .25s,background .25s}
+.nav-links a:first-child{border-inline-start:1px solid rgba(184,149,58,.15)}
+.nav-links a:hover{color:var(--ink);background:rgba(184,149,58,.06)}
+#hero{min-height:100vh;padding:68px 0 0;display:grid;grid-template-rows:1fr auto}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 68px)}
+.hero-left{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;
+  border-inline-end:1px solid rgba(184,149,58,.2)}
+.hero-right{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;background:var(--ink)}
+.hero-eyebrow{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:32px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::after{content:'';flex:1;height:1px;background:var(--gold);opacity:.4}
+h1{font-family:var(--df);font-size:clamp(3.2rem,6.5vw,5.8rem);font-weight:900;line-height:.95;
+  letter-spacing:-.02em;margin-bottom:20px;color:var(--ink)}
+h1 em{font-style:italic;font-weight:400;color:var(--gold)}
+.hero-jt{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:48px;font-weight:500}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-solid{padding:14px 36px;background:var(--ink);color:var(--cream);font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;font-weight:500;text-decoration:none;transition:all .3s}
+.btn-solid:hover{background:var(--gold);transform:translateY(-2px)}
+.btn-outline{padding:13px 36px;border:1px solid rgba(13,13,11,.35);color:var(--ink);
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-desc{font-size:16px;line-height:1.85;color:rgba(247,243,237,.65);margin-bottom:48px}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06)}
+.stat{padding:28px 24px;background:var(--ink)}
+.stat-v{font-family:var(--df);font-size:3.2rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-l{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,243,237,.4);margin-top:8px}
+.hero-rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.4}
+section:not(#hero){padding:100px 60px}
+.sw{max-width:var(--maxw);margin:0 auto}
+.sec-label{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.sec-label::after{content:'';flex:1;height:1px;background:rgba(184,149,58,.25)}
+.sec-title{font-family:var(--df);font-size:clamp(2rem,4vw,3rem);font-weight:700;
+  line-height:1.08;letter-spacing:-.02em;margin-bottom:64px}
+.sec-title em{font-style:italic;font-weight:400;color:var(--gold)}
+#about{background:var(--cream2)}
+.about-grid{display:grid;grid-template-columns:2fr 1fr;gap:80px;align-items:start}
+.about-text{font-size:17px;line-height:1.95;color:#3a3530}
+.about-divider{width:48px;height:2px;background:var(--gold);margin:36px 0}
+.about-side{display:flex;flex-direction:column;gap:0}
+.about-stat{padding:24px 0;border-bottom:1px solid rgba(184,149,58,.15)}
+.about-stat:first-child{border-top:1px solid rgba(184,149,58,.15)}
+.as-num{font-family:var(--df);font-size:3rem;font-weight:900;color:var(--ink);line-height:1}
+.as-lbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.skills-cloud{display:flex;flex-wrap:wrap;gap:10px}
+.sk-tag{padding:10px 22px;border:1px solid rgba(184,149,58,.3);font-size:13px;color:#3a3530;
+  letter-spacing:.04em;transition:all .25s;cursor:default;opacity:0;animation:fade-up .5s ease forwards}
+.sk-tag:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+@keyframes fade-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+#experience{background:var(--ink)}
+#experience .sec-label{color:var(--gold)}
+#experience .sec-label::after{background:rgba(184,149,58,.25)}
+#experience .sec-title{color:var(--cream)}
+#experience .sec-title em{color:var(--gold)}
+.exp-row{display:grid;grid-template-columns:160px 1fr;gap:48px;
+  padding:44px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.exp-row:first-of-type{border-top:1px solid rgba(255,255,255,.06)}
+.exp-num{font-family:var(--df);font-size:2.4rem;font-weight:900;color:rgba(184,149,58,.15);line-height:1}
+.exp-period{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(247,243,237,.3);margin-top:10px}
+.exp-title{font-family:var(--df);font-size:1.5rem;font-weight:700;color:var(--cream);margin-bottom:6px}
+.exp-co{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.exp-desc{font-size:14px;line-height:1.85;color:rgba(247,243,237,.45)}
+#education{background:var(--cream2)}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2px;background:rgba(184,149,58,.12)}
+.edu-card{background:var(--cream2);padding:36px;transition:all .3s}
+.edu-card:hover{background:var(--ink);transform:translateY(-4px)}
+.edu-card:hover .edu-yr,.edu-card:hover .edu-deg,.edu-card:hover .edu-sch{color:var(--cream)}
+.edu-card:hover .edu-deg{color:var(--gold)}
+.edu-yr{font-family:var(--df);font-size:2.2rem;font-weight:900;color:rgba(184,149,58,.3);line-height:1;margin-bottom:20px;transition:color .3s}
+.edu-deg{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:6px;transition:color .3s}
+.edu-sch{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);transition:color .3s}
+#contact{background:var(--ink)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.contact-left .sec-label{color:var(--gold)}
+.contact-left .sec-label::after{background:rgba(184,149,58,.25)}
+.contact-left .sec-title{color:var(--cream)}
+.contact-left .sec-title em{color:var(--gold)}
+.contact-intro{font-size:16px;line-height:1.85;color:rgba(247,243,237,.5)}
+.c-links{display:flex;flex-direction:column;gap:2px;margin-top:40px}
+.c-link{display:flex;justify-content:space-between;align-items:center;
+  padding:18px 24px;background:rgba(255,255,255,.04);text-decoration:none;
+  border-inline-start:3px solid transparent;transition:all .2s}
+.c-link:hover{background:rgba(184,149,58,.08);border-color:var(--gold)}
+.c-link .cl{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(247,243,237,.35)}
+.c-link .cv{font-size:13px;color:var(--gold);font-weight:500}
+.c-raw{font-size:14px;color:rgba(247,243,237,.5);padding:18px 0}
+footer{background:var(--ink);text-align:center;padding:32px 20px;
+  border-top:1px solid rgba(255,255,255,.06);
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,243,237,.25)}
+@media(max-width:900px){
+  nav{padding:0 24px}.nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:60px 24px}
+  section:not(#hero){padding:70px 24px}.about-grid{grid-template-columns:1fr}
+  .exp-row{grid-template-columns:1fr;gap:12px}.exp-num{display:none}
+  .contact-wrap{grid-template-columns:1fr}.edu-grid{grid-template-columns:1fr}
+}
+</style></head><body>
+<nav>
+  <div class="nav-name">Yazan Shamieh</div>
+  <div class="nav-links">
+    <a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#experience">Experience</a><a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Open to opportunities</div>
+      <h1>Yazan Shamieh<br><em>Software Engineer</em></h1>
+      <p class="hero-jt">Years Experience: 1+</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-solid">Get in Touch</a>
+        <a href="#experience" class="btn-outline">See My Work</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <p class="hero-desc">Flutter developer with experience building e-commerce, educational programming, and delivery applications.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-v">1+</div><div class="stat-l">Years Experience</div></div>
+        <div class="stat"><div class="stat-v">4</div><div class="stat-l">Skills</div></div>
+        <div class="stat" style="grid-column:1/-1"><div class="stat-v">4+</div><div class="stat-l">Projects</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-rule"></div>
+</section>
+<section id="about">
+  <div class="sw reveal">
+    <p class="sec-label">About</p>
+    <h2 class="sec-title"><em>Who I Am</em></h2>
+    <div class="about-grid">
+      <div><p class="about-text">Flutter developer with experience building e-commerce, educational programming, and delivery applications.</p><div class="about-divider"></div></div>
+      <div class="about-side">
+        <div class="about-stat"><div class="as-num">1+</div><div class="as-lbl">Years Experience</div></div>
+        <div class="about-stat"><div class="as-num">4</div><div class="as-lbl">Skills</div></div>
+        <div class="about-stat"><div class="as-num">4+</div><div class="as-lbl">Projects</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills">
+  <div class="sw reveal">
+    <p class="sec-label">Expertise</p>
+    <h2 class="sec-title"><em>What I Do</em></h2>
+    <div class="skills-cloud"><span class="sk-tag" style="animation-delay:0.0s">Dart</span><span class="sk-tag" style="animation-delay:0.06s">Flutter</span><span class="sk-tag" style="animation-delay:0.12s">RESTful API</span><span class="sk-tag" style="animation-delay:0.18s">Firebase</span></div>
+  </div>
+</section>
+<section id="experience">
+  <div class="sw">
+    <p class="sec-label">Experience</p>
+    <h2 class="sec-title"><em>Career</em></h2>
+          <div class="exp-row reveal">
+        <div class="exp-meta">
+          <div class="exp-num">01</div>
+          <div class="exp-period"></div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Software Engineer – 2 years of experience developing Flutter applications for e</div>
+          <div class="exp-co">commerce, educational programming, and delivery platforms; integrated RESTful APIs and Firebase backend services; collaborated with cross</div>
+          <div class="exp-desc">functional teams to deliver functional user — facing features.</div>
+        </div>
+      </div>
+  </div>
+</section>
+<section id="education">
+  <div class="sw reveal">
+    <p class="sec-label">Education</p>
+    <h2 class="sec-title"><em>Academic</em></h2>
+    <div class="edu-grid">      <div class="edu-card reveal">
+        <div class="edu-yr">2025</div>
+        <div class="edu-deg">Diploma in Software Engineering,</div>
+        <div class="edu-sch"></div>
+      </div></div>
+  </div>
+</section>
+<section id="contact">
+  <div class="sw">
+    <div class="contact-wrap">
+      <div class="contact-left reveal">
+        <p class="sec-label">Contact</p>
+        <h2 class="sec-title"><em>Let's Talk</em></h2>
+        <p class="contact-intro">Always open to new challenges and meaningful collaborations.</p>
+      </div>
+      <div class="c-links reveal"><a href="mailto:yazanshamieh1@gmail.com" class="c-link" target="_blank"><span class="cl">Email</span><span class="cv">yazanshamieh1@gmail.com</span></a>
+<a href="tel:0997438963" class="c-link" target="_blank"><span class="cl">Phone</span><span class="cv">0997438963</span></a></div>
+    </div>
+  </div>
+</section>
+<footer>Made with purpose · Yazan Shamieh © 2026</footer>
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis')}})},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+})();
+</script>
+</body></html>
